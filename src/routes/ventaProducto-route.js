@@ -4,6 +4,7 @@ const ventaCtrl = require("../controller/ventaProducto-controller");
 
 //router.post('/crearVenta2',ventaCtrl.registrar);
 router.post("/crearVentaProducto", ventaCtrl.generarVentaProducto);
+router.get("/listarVentasProductos", ventaCtrl.listarVentaProductos);
 // router.get("/listar", ventaCtrl.listar);
 // router.get("/listarDetalles/:id", ventaCtrl.listarDetalle);
 // router.get("/listarId/:id", ventaCtrl.listarId);

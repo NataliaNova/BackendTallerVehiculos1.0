@@ -6,4 +6,4 @@ var ventaProductoSchema = Schema({
   fecha: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("venta", ventaProductoSchema);
+module.exports = mongoose.model("ventaProducto", ventaProductoSchema);

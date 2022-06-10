@@ -41,8 +41,8 @@ producCtr.crearProducto = async (req, res) => {
       nombre,
       marca,
       descripcion,
-      imagen,
-      // imagen: imagenCargada,
+      //imagen,
+      imagen: imagenCargada,
       precio_compra,
       precio_venta,
       cantidad,
@@ -116,4 +116,4 @@ producCtr.obtenerImagen = async (req, res) => {
   }
 };
 
-(module.exports = producCtr), imagenCtrl;
+(module.exports = producCtr)

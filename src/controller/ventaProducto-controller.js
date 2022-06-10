@@ -16,7 +16,7 @@ ventaCtrl.generarVentaProducto = async (req, res) => {
         var detalleVentaProducto = new detalleVentaProductoModel();
         detalleVentaProducto.idproducto = element.idproducto;
         detalleVentaProducto.cantidad = element.cantidad;
-        detalleVentaProducto.venta = venta_save._id;
+        detalleVentaProducto.venta = ventaProducto_save._id;
 
         detalleVentaProducto.save((err, detalle_save) => {
           if (detalle_save) {
@@ -51,6 +51,21 @@ ventaCtrl.generarVentaProducto = async (req, res) => {
       res.send(err);
     }
   });
+};
+
+ventaCtrl.listarVentaProductos = async (req, res) => {
+  ventaProductoModel
+    .find()
+    .populate("idcliente")
+    .exec((err, data_ventas) => {
+      if (data_ventas) {
+        res.json({
+          listar: data_ventas,
+        });
+      } else {
+        res.status(404).send({ message: "No hay ningun registro de venta" });
+      }
+    });
 };
 
 module.exports = ventaCtrl;
