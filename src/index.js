@@ -23,6 +23,7 @@ app.use("/producto", require("./routes/producto-routes"));
 app.use("/cliente", require("./routes/cliente-routes"));
 app.use("/administrador", require("./routes/administrador-routes"));
 app.use("/ventaProducto", require("./routes/ventaProducto-route"));
+app.use("/usuario", require("./routes/usuario-routes"));
 
 // Oir el puerto
 app.listen(app.get("Port"), () => {

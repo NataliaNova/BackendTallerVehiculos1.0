@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 // Conexión a BD Nube
 // URL = ('mongodb+srv://Al3jox:Mg31415*@cluster0.5uq3h.mongodb.net/avnMotors?retryWrites=true&w=majority');
 
-//BD Nune Nat
+//BD Nube Nat
 URL =
   "mongodb+srv://NatNov:Yafue03@cluster0.l3u4g.mongodb.net/avn?retryWrites=true&w=majority";
 
