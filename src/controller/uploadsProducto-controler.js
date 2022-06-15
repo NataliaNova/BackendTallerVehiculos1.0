@@ -1,4 +1,4 @@
-/* const multer = require("multer");
+const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -16,4 +16,3 @@ exports.upload = upload.single("imagen");
 exports.uploadFile = (req, res) => {
   res.send({ data: "Cargar un archivo de imagen" });
 };
- */

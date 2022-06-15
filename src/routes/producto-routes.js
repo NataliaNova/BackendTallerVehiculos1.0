@@ -20,4 +20,6 @@ router.delete(
   productoCtr.eliminarProducto
 );
 
+router.get("/producto/img/:img", productoCtr.obtenerImagen);
+
 module.exports = router;
