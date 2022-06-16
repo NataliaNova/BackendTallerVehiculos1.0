@@ -6,7 +6,6 @@ const servicioSchema = new Schema({
     descripcion: String,
     tiempoEstimado: Number,
     precio: Number,
-    placa: String,
     imagen: String,
     fechaRealizacionServicio: { type: Date, default: Date.now }
 })

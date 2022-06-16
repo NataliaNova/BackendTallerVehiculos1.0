@@ -1,9 +1,10 @@
 const servicioCtr = {};
-// const req = require('express/lib/request');
 const servicioModel = require('../models/servicios-model');
-const path = require("path");
+const uploadsServicioControler = require("./uploadsServicios-controler");
+const imagenCtrl = {};
 const fs = require("fs");
-const serviciosModel = require('../models/servicios-model');
+const path = require("path");
+
 
 
 // Crear Servicios
@@ -13,18 +14,16 @@ servicioCtr.crearServicio = async(req, res) => {
         descripcion,
         tiempoEstimado,
         precio,
-        placa, //eliminar
-        imagen
-    } = req.body
+        imagen,
+    } = req.body;
     const nuevoServicio = new servicioModel({
         nombre,
         descripcion,
         tiempoEstimado,
         precio,
-        placa, //eliminar
-        imagen
-    })
-    const documentoservicio = await serviciosModel.findOne({ nombre: nombre });
+        imagen,
+    });
+    const documentoservicio = await servicioModel.findOne({ nombre: nombre });
     if (documentoservicio) {
         res.json({
             mensaje: "Este Servicio ya existe, por favor verifique.",
@@ -35,12 +34,11 @@ servicioCtr.crearServicio = async(req, res) => {
         const name = imagen_path.split("\\");
         const imagenCargada = name[3];
 
-        const nuevoServicio = new ServiciosModel({
+        const nuevoServicio = new servicioModel({
             nombre,
             descripcion,
             tiempoEstimado,
             precio,
-            placa,
             imagen: imagenCargada
 
         });
@@ -50,13 +48,12 @@ servicioCtr.crearServicio = async(req, res) => {
             nombre: nombre,
         });
     } else {
-        const nuevoServicio = new serviciosModel({
+        const nuevoServicio = new servicioModel({
             nombre,
             descripcion,
             tiempoEstimado,
             precio,
-            placa,
-            imagen
+            imagen: imagenCargada
         });
         await nuevoServicio.save();
         res.json({
@@ -72,11 +69,6 @@ servicioCtr.listarServicios = async(req, res) => {
     res.json(respuesta)
 }
 
-// Listar Servicios por placa
-//servicioCtr.listarServiciosPlaca = async(req, res) => {
-//    const respuesta = await servicioModel.findOne({ placa: placa })
-//    res.json(respuesta)
-//}
 
 // Actualizar Servicios
 servicioCtr.actualizarServicios = async(req, res) => {
@@ -112,9 +104,4 @@ servicioCtr.obtenerImagen = async(req, res) => {
     }
 };
 
-
-
-
-
-
-module.exports = servicioCtr
+(module.exports = servicioCtr), imagenCtrl;
