@@ -5,7 +5,6 @@ const imagenCtrl = {};
 const uploadsProductoControler = require("../controller/uploadsProducto-controler");
 const fs = require("fs");
 const path = require("path");
-// const multer = require("multer");
 
 // Crear producto
 producCtr.crearProducto = async (req, res) => {
@@ -82,11 +81,20 @@ producCtr.listarProductosId = async (req, res) => {
   res.json(respuesta);
 };
 
+//Listar nombre
+/* productoCtrl.listarProductoNombre = async (req, res) => {
+  const { nombre } = req.params;
+  const respuesta = await productoModel.find({
+    nombre: { $regex: "^" + nombre, $options: "i" },
+  });
+  res.json(respuesta);
+}; */
+
 // Actualizar Productos
-producCtr.actualizarProducto = async (res, req) => {
+producCtr.actualizarProducto = async (req, res) => {
   const id = req.params.id;
-  await proveedorModel.findByIdAndUpdate({ _id: id }, req.body);
-  const respuesta = proveedorModel.findById({ _id: id });
+  await productoModel.findByIdAndUpdate({ _id: id }, req.body);
+  const respuesta = await productoModel.findById({ _id: id });
   res.json({
     mensaje: "El producto fue actualizado con exito",
     respuesta,
